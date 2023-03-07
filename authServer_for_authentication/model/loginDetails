@@ -1,0 +1,26 @@
+//creating a table in SQL DB to store user login details
+const bcrypt=require('bcrypt');
+const {DataTypes}=require('sequelize');
+const sequelize=require('./sequelize');
+const registration=sequelize.define('longinDetails',{
+  id: {
+    type:DataTypes.INTEGER,
+    allowNull:false,
+    primaryKey:true
+  },
+  password: {
+    type: DataTypes.CHAR,
+    allowNull:false
+  },
+  email:{
+    type: DataTypes.CHAR,
+    allowNull: true
+  },
+  name:{
+    type: DataTypes.CHAR,
+    allowNull: true
+  }
+
+},{tableName:'loginDetails'});
+
+module.exports=registration;

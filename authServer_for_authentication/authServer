@@ -1,0 +1,16 @@
+require('dotenv').config();
+const express=require('express');
+const app=express();
+const bodyparser=require('body-parser');
+const sequelize=require('./model/sequelize');
+const authRouter=require('./Routes/auths');
+
+sequelize.sync().then(()=>console.log("sync is completed")).catch((err)=>console.log(err));
+//used to parse the incoming and outgoing data
+app.use(bodyparser.json());
+app.use('/auth',authRouter);
+app.listen(4000,()=>console.log("auth is running"));
+
+
+
+
