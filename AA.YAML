@@ -1,0 +1,10 @@
+steps:
+- task: AzureResourceManagerTemplateDeployment@3
+  displayName: 'ARM Template deployment: Resource Group scope'
+  inputs:
+    azureResourceManagerConnection: 'IT Infra-46 (23a10725-0f45-4b82-88e0-189c6e8c94a9)'
+    subscriptionId: '23a10725-0f45-4b82-88e0-189c6e8c94a9'
+    resourceGroupName: 'Anuj_RG'
+    location: 'Central India'
+    csmFile: AzureResourceGroup5/ARM.json
+    csmParametersFile: AzureResourceGroup5/ARM.parameter.json
